@@ -1,0 +1,6 @@
+<Project>
+  <PropertyGroup>
+    <!-- Folder that contains BepInEx/ and the game executable or .app bundle. -->
+    <GameDir>/path/to/Moonlight Peaks</GameDir>
+  </PropertyGroup>
+</Project>

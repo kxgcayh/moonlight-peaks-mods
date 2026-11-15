@@ -1,0 +1,15 @@
+<Project>
+  <!--
+    Shared settings for every mod project under mods/.
+    Set your game install path in GameDir.local.props (gitignored; copy GameDir.local.props.example),
+    or pass -p:GameDir=... on the command line. Falls back to the default Steam location.
+  -->
+  <Import Project="$(MSBuildThisFileDirectory)GameDir.local.props" Condition="Exists('$(MSBuildThisFileDirectory)GameDir.local.props')" />
+
+  <PropertyGroup Condition="'$(GameDir)' == '' And $([MSBuild]::IsOSPlatform('Windows'))">
+    <GameDir>C:\Program Files (x86)\Steam\steamapps\common\Moonlight Peaks</GameDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(GameDir)' == ''">
+    <GameDir>$(HOME)/Library/Application Support/Steam/steamapps/common/Moonlight Peaks</GameDir>
+  </PropertyGroup>
+</Project>

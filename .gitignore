@@ -1,0 +1,17 @@
+.DS_Store
+bin/
+obj/
+GameDir.local.props
+
+# Third-party Nexus downloads: local reference only, not redistributed
+**/extracted/
+**/original/
+*.zip
+*.7z
+*.rar
+
+# Third-party mods (local only; see ../AGENTS.md "Git and Submodules")
+CatalogQoL/
+DetailedMinimap/
+HouseStorageAnywhere/
+InfiniteEnergy/
