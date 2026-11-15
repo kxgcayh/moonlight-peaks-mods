@@ -6,7 +6,7 @@ BepInEx + Harmony mods for *Moonlight Peaks*. Each folder is one mod; projects t
 
 These mods are AI-generated. AI coding agents (Claude Code, Codex) write the code; I direct the work, review the changes and test each mod in-game before release.
 
-- **No game files are modified on disk.** Mods patch the game at runtime through BepInEx + Harmony. The one exception is `SavePathOverride`, an opt-in utility that writes a patched *copy* of a Unity DLL; you choose the output path.
+- **No game files are modified on disk.** Mods patch the game at runtime through BepInEx + Harmony.
 - **No network access.** No mod makes web requests or sends data anywhere. `GameBridge` only listens on a local Unix socket that only your user account can access, is read-only, and exists for local debugging.
 - **No game assets are redistributed.** Game assemblies were inspected locally to find the types and methods to patch. This repository contains only original source code and docs.
 
@@ -40,7 +40,6 @@ dotnet build SkipIntro/MoonlightPeaks.SkipIntro.csproj
 | [`PortraitPackLoader`](./PortraitPackLoader/) | Loads Serena-format portrait packs (Serena's Portrait Replacer replacement) |
 | [`OptInGenderCreation`](./OptInGenderCreation/) | Character creation style filter |
 | [`SaveInfo`](./SaveInfo/) | Save file info plugin |
-| [`SavePathOverride`](./SavePathOverride/) | macOS save path patch utility |
 | [`SkipIntro`](./SkipIntro/) | Skips the intro sequence |
 
 Only original mods are tracked. Third-party mods kept here for reference are gitignored.

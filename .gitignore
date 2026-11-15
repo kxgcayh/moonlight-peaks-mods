@@ -17,3 +17,6 @@ HouseStorageAnywhere/
 InfiniteEnergy/
 AshPortraitSet/
 MixMatchTSF/
+
+# Private local utilities (never tracked)
+SavePathOverride/
