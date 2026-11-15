@@ -1,5 +1,7 @@
 # Moonlight Peaks Game Bridge
 
+> AI-generated mod. See the [AI disclosure](../README.md#ai-disclosure).
+
 A BepInEx plugin that gives the local Game MCP server read-only access to the running game. It exposes status, an on-demand game state snapshot, selected game events, and an explicitly requested screenshot. It does not provide commands or input simulation. Selected events are written to the normal BepInEx log; no growing event buffer is kept in memory.
 
 ## Build and install

@@ -1,5 +1,7 @@
 # Opt-In Gender Creation
 
+> AI-generated mod. See the [AI disclosure](../README.md#ai-disclosure).
+
 **Opt-In Gender Creation** is a character creation style filter for *Moonlight Peaks* v1.3.9. A selector at the top left of the screen offers `Default`, `Male`, and `Female`. These are appearance presets, not a gender field saved to the character.
 
 ## Features

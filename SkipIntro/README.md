@@ -1,5 +1,7 @@
 # Skip Intro
 
+> AI-generated mod. See the [AI disclosure](../README.md#ai-disclosure).
+
 Hold **F** for **0.6 seconds** at the **Run Away From Home** choice after character creation. The native purple hint uses the active game button as its template.
 
 The plugin redirects the departure continuation to the shipped `Content_Intro_Director` skip branch, which reveals NPC names and invokes the normal external progression function. It does not fast-forward or load the train cinematic. Exact graph/node IDs are documented in the parent modding workspace (`dll-info/game/vampire-runtime.md`).
