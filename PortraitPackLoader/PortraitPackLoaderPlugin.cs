@@ -39,7 +39,7 @@ namespace MoonlightPeaks.PortraitPackLoader
                 "Packs extracted to the legacy SerenaPortraitReplacer/Portraits folder are also loaded.");
 
             WriteDetectedKeys = Config.Bind(
-                "Debug", "WriteDetectedKeys", true,
+                "Debug", "WriteDetectedKeys", false,
                 "Write DetectedPortraitKeys.txt next to the Portraits folder listing every key the game exposes " +
                 "and which pack files matched.");
 
@@ -51,10 +51,18 @@ namespace MoonlightPeaks.PortraitPackLoader
             PortraitRegistry.Init(folder, legacy);
 
             _harmony = new Harmony(PluginGuid);
-            _harmony.PatchAll();
+            PatchSafely(typeof(LoadSpriteCompletedPatch));
+            PatchSafely(typeof(ImageSpriteSetterPatch));
 
             Logger.LogInfo($"{PluginName} v{PluginVersion} loaded. {PortraitRegistry.FileCount} PNG(s) in {folder}" +
                            (Directory.Exists(legacy) ? $" and legacy {legacy}" : ""));
+        }
+
+        // One failing patch must not stop the others or the plugin from loading.
+        private void PatchSafely(System.Type patch)
+        {
+            try { _harmony!.CreateClassProcessor(patch).Patch(); }
+            catch (System.Exception e) { Logger.LogError($"Could not apply {patch.Name}: {e.Message}"); }
         }
 
         private static string Resolve(string folder) =>

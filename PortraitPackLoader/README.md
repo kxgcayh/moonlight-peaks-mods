@@ -8,7 +8,7 @@ How it works: the mod maps every NPC portrait sprite reference (all portrait sty
 
 Config `BepInEx/config/com.moonlightpeaks.portraitpackloader.cfg`:
 - `General.PortraitsFolder`: pack folder, relative to `BepInEx/plugins` (default `PortraitPacks/Portraits`). Configs still set to the old default `SerenaPortraitReplacer/Portraits` switch to the new default on first launch.
-- `Debug.WriteDetectedKeys`: writes `DetectedPortraitKeys.txt` next to the folder: every key the game exposes, which matched, and pack files with no match.
+- `Debug.WriteDetectedKeys` (default `false`; turn on when making or debugging a pack): writes `DetectedPortraitKeys.txt` next to the folder: every key the game exposes, which matched, and pack files with no match.
 
 Build: `dotnet build PortraitPackLoader` (copies the DLL into `BepInEx/plugins`). Restart the game after adding PNGs.
 

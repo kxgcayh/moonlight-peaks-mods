@@ -16,14 +16,25 @@ namespace MoonlightPeaks.PortraitPackLoader
     internal static class LoadSpriteCompletedPatch
     {
         private static FieldInfo? _spriteReference;
+        private static MethodBase? _target;
 
-        private static MethodBase TargetMethod()
+        // The closure and method names are compiler-generated and change when the game is rebuilt.
+        // Harmony skips this patch when Prepare returns false, so a game update disables portrait
+        // swapping instead of failing the whole plugin.
+        private static bool Prepare()
         {
-            var closure = AccessTools.Inner(typeof(ImageForAddressable), "<>c__DisplayClass5_0")
-                ?? throw new InvalidOperationException("ImageForAddressable load closure not found");
-            _spriteReference = AccessTools.Field(closure, "spriteReference");
-            return AccessTools.Method(closure, "<LoadSpriteReference>b__0");
+            var closure = AccessTools.Inner(typeof(ImageForAddressable), "<>c__DisplayClass5_0");
+            _spriteReference = closure == null ? null : AccessTools.Field(closure, "spriteReference");
+            _target = closure == null ? null : AccessTools.Method(closure, "<LoadSpriteReference>b__0");
+            if (_target != null && _spriteReference != null) return true;
+
+            PortraitPackLoaderPlugin.Logger.LogError(
+                "ImageForAddressable sprite-load closure not found; portraits will not be replaced. " +
+                "This game version is not supported yet - please report it with your game version.");
+            return false;
         }
+
+        private static MethodBase TargetMethod() => _target!;
 
         private static void Prefix(object __instance, AsyncOperationHandle<Sprite> result)
         {
