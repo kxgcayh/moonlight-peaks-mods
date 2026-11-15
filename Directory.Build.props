@@ -1,6 +1,6 @@
 <Project>
   <!--
-    Shared settings for every mod project under mods/.
+    Shared settings for every mod project in this repository.
     Set your game install path in GameDir.local.props (gitignored; copy GameDir.local.props.example),
     or pass -p:GameDir=... on the command line. Falls back to the default Steam location.
   -->

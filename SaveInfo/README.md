@@ -4,4 +4,4 @@ Creates `save_info.txt` in each save directory when the game reads its metadata 
 
 The file is a readable sidecar. The game continues to use its own save data. Files without this mod's `# Moonlight Peaks Save Info` marker are left alone.
 
-Build and install with `dotnet build mods/SaveInfo`, then restart the game and open the save list. The project copies the DLL into the configured BepInEx plugins folder.
+Build and install with `dotnet build SaveInfo`, then restart the game and open the save list. The project copies the DLL into the configured BepInEx plugins folder.
