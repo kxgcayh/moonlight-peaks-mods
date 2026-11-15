@@ -27,6 +27,7 @@ dotnet build SkipIntro/MoonlightPeaks.SkipIntro.csproj
 | Mod | Description |
 | --- | --- |
 | [`GameBridge`](./GameBridge/) | Local HTTP bridge used by the game-observer MCP |
+| [`PortraitPackLoader`](./PortraitPackLoader/) | Loads Serena-format portrait packs (Serena's Portrait Replacer replacement) |
 | [`OptInGenderCreation`](./OptInGenderCreation/) | Character creation style filter |
 | [`SaveInfo`](./SaveInfo/) | Save file info plugin |
 | [`SavePathOverride`](./SavePathOverride/) | macOS save path patch utility |
