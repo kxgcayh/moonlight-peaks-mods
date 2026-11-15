@@ -36,15 +36,27 @@ namespace MoonlightPeaks.PortraitPackLoader
 
         internal static int FileCount => Files.Count;
 
-        internal static void Init(string folder)
+        /// <summary>Indexes PNGs in <paramref name="folder"/>, then fills gaps from <paramref name="legacyFolder"/>.</summary>
+        internal static void Init(string folder, string legacyFolder)
         {
             _folder = folder;
+            Load(folder, overwrite: true);
+            if (!string.Equals(Path.GetFullPath(folder).TrimEnd('/', '\\'), Path.GetFullPath(legacyFolder).TrimEnd('/', '\\'),
+                    StringComparison.OrdinalIgnoreCase))
+                Load(legacyFolder, overwrite: false);
+        }
+
+        private static void Load(string folder, bool overwrite)
+        {
             if (!Directory.Exists(folder)) return;
             foreach (var path in Directory.GetFiles(folder, "*.png", SearchOption.AllDirectories))
             {
                 var key = Norm(Path.GetFileNameWithoutExtension(path));
                 if (Files.ContainsKey(key))
+                {
+                    if (!overwrite) continue; // the configured folder wins over the legacy one
                     PortraitPackLoaderPlugin.Logger.LogWarning($"Duplicate portrait key '{key}': {path}");
+                }
                 Files[key] = path;
             }
         }
