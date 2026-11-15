@@ -1,10 +1,14 @@
 # Moonlight Peaks Mods
 
-BepInEx + Harmony mods for *Moonlight Peaks*. Each folder is one mod; projects target `netstandard2.1` and copy the built DLL into `BepInEx/plugins/` after build.
+BepInEx + Harmony mods for *Moonlight Peaks*. Each folder is one mod; projects target `netstandard2.1`. GameBridge, SaveInfo and SkipIntro copy the built DLL into `BepInEx/plugins/` after build.
 
 ## Set the game path
 
-`Directory.Build.props` defines `GameDir` for every project. Set yours once:
+`Directory.Build.props` defines `GameDir` for every project from the gitignored `GameDir.local.props`.
+
+Inside the modding workspace, don't edit it by hand: set `MP_GAME_DIR` in the workspace's `paths.local.env` and run `bash setup.sh`, which generates this file and configures the tools too.
+
+Using this repo on its own:
 
 ```sh
 cp GameDir.local.props.example GameDir.local.props   # then edit the path
