@@ -12,4 +12,13 @@ Config `BepInEx/config/com.moonlightpeaks.portraitpackloader.cfg`:
 
 Build: `dotnet build PortraitPackLoader` (copies the DLL into `BepInEx/plugins`). Restart the game after adding PNGs.
 
-Status: with Ash's Portrait Set v1.5, 437/471 files map at the main menu; most of the rest are creature portraits that map once they load in-game. Confirmed working in-game by the user (2026-11-16).
+Status: confirmed working in-game (2026-11-16). With Ash's Portrait Set v1.5, 437/471 files map at the main menu. The 34 unmatched files (from `DetectedPortraitKeys.txt`):
+
+- **Creature portraits, 18 files (load on demand):** cheeken (2), cowcula, draculamb (2), piggoat (3), plumpkin (2), rabbicula (3), stoney, vampster, plus amar, celine and medusa (not yet confirmed to be creatures). They match once the creature loads in-game. A plain `cowcula` file may never match, because the game only uses the coloured versions.
+- **No matching game key, 16 files:**
+  - `hosurei_*_neckless` (7): the pack's alternative look for Rei; the game has no such variant.
+  - `webbfiona_mean*` (4): the game has an angry expression for Fiona but no mean one.
+  - `albertus_small`: the game has no small portrait for Albertus.
+  - `ambrosiasamael_romantic`, `draculaviktor_humanoid`, `draculaviktor_viktorstorytelling2`, `hendersonpenelope_postreunion`: not in the key dump. They are either from another game version or appear only in specific story scenes.
+
+The expected total after creatures load is about 455/471.
