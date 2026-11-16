@@ -10,13 +10,5 @@ GameDir.local.props
 *.7z
 *.rar
 
-# Third-party mods (local only; see ../AGENTS.md "Git and Submodules")
-CatalogQoL/
-DetailedMinimap/
-HouseStorageAnywhere/
-InfiniteEnergy/
-AshPortraitSet/
-MixMatchTSF/
-
-# Private local utilities (never tracked)
-SavePathOverride/
+# Mod media (Nexus page images): local only
+**/media/
