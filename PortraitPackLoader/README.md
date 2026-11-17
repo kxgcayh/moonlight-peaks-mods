@@ -2,6 +2,8 @@
 
 > AI-generated mod. See the [AI disclosure](../README.md#ai-disclosure).
 
+Download: [Nexus Mods, mod 157](https://www.nexusmods.com/moonlightpeaks/mods/157).
+
 Loads portrait packs made for the deleted *Serena's Portrait Replacer* (for example Ash's Portrait Set, Moonlight Bachelors, and Rain's Revamped Vanilla Portraits). Put pack files in `BepInEx/plugins/PortraitPacks/Portraits/<Character>/<Key>.png`. Packs whose instructions say to extract into `SerenaPortraitReplacer/Portraits` also work unchanged: that legacy folder is still loaded, and files in `PortraitPacks` win when both folders have the same key.
 
 How it works: the mod maps every NPC portrait sprite reference (all portrait styles) and loaded creature `PortraitAsset` to a Serena-style key (`AmbrosiaEvan_Angry`, `WebbFiona_Happy_Rose_Vampire`, `AmbrosiaEvan_small`, `Cowcula_black`), then swaps the sprite when `ImageForAddressable` finishes loading it. It replaces dialogue, relationship, calendar and small portraits regardless of the portrait style setting. Game internals are documented in `dll-info/game/vampire-runtime.md` §13 of the parent workspace.
